@@ -44,29 +44,36 @@
         font-size: 16px;
         cursor: pointer;
         border-radius: 5px;
+        margin-top: 20px;
       }
       button:hover {
         background-color: #0056b3;
+      }
+      input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 60%;
+        margin-bottom: 10px;
       }
     </style>
   </head>
   <body>
     <div class="container">
       <h1>Frage 1</h1>
-      <div class="question">Darf man in den Schulzimmer Essen?</div>
-      <ul class="answers">
-        <li>
-          <button onclick="checkAnswer('A')">A) Ja</button>
-        </li>
-        <li>
-          <button onclick="checkAnswer('B')">B) Nein</button>
-        </li>
-      </ul>
+      <div class="question">Welche Zahl hat das Coca Cola im Selecteautomat?</div>
+      <input type="text" id="userAnswer" placeholder="Antwort eingeben" />
+      <button onclick="checkAnswer()">Überprüfen</button>
     </div>
 
     <script>
-      function checkAnswer(answer) {
-        if (answer === "B") {
+      function checkAnswer() {
+        var userAnswer = document
+          .getElementById("userAnswer")
+          .value.trim()
+          .toUpperCase();
+        if (userAnswer === "B" || userAnswer === "23") {
           window.location.href = "schluss.html";
         } else {
           alert("Falsch! Versuche es noch einmal.");
